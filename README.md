@@ -4,7 +4,7 @@ Shared TOTP-based identity verification for non-technical users.
 
 Generate a common secret code that family members or trusted groups can use to verify each other's identity using standard authenticator apps.
 
-![Screenshot](screenshot1.jpg)
+![Screenshot](screenshot1.png)
 
 ## Features
 
