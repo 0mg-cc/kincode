@@ -1,0 +1,66 @@
+{
+  "app": {
+    "title": "Family Code",
+    "subtitle": "Create a shared secret code with your loved ones"
+  },
+  "form": {
+    "membersLabel": "People to authenticate",
+    "namePlaceholder": "Name",
+    "generateBtn": "Generate our secret code",
+    "regenerateBtn": "Generate a new code",
+    "addMember": "Add a person",
+    "removeMember": "Remove"
+  },
+  "result": {
+    "title": "Your secret code is ready!",
+    "qrInstructions": "Scan this QR code with your authenticator app",
+    "qrFor": "QR Code for",
+    "manualEntry": "Manual entry",
+    "manualInstructions": "If you can't scan the QR code, enter this code manually:",
+    "secretLabel": "Secret code",
+    "copyBtn": "Copy",
+    "copied": "Copied!",
+    "issuerLabel": "Issuer",
+    "accountLabel": "Account"
+  },
+  "demo": {
+    "title": "Verification",
+    "description": "Here is the current code. Compare it with your app to verify everything works.",
+    "currentCode": "Current code",
+    "nextIn": "Next code in",
+    "seconds": "s"
+  },
+  "security": {
+    "title": "Important",
+    "warning1": "Do not take screenshots of this page",
+    "warning2": "Never share your secret code via message or email",
+    "warning3": "Scan the QR code now, it will disappear when you close the page"
+  },
+  "help": {
+    "title": "How does it work?",
+    "step1Title": "1. Create your code",
+    "step1Text": "Enter the names of the people and click \"Generate\". A unique secret code will be created.",
+    "step2Title": "2. Scan the QR code",
+    "step2Text": "Each person scans their QR code with an app like Google Authenticator, Authy, or 2FAS.",
+    "step3Title": "3. Use your codes",
+    "step3Text": "When you need to verify your identity, compare your 6-digit codes. If they match, it's really you!",
+    "whyTitle": "Why is it secure?",
+    "whyText": "The code changes every 30 seconds and cannot be guessed. Only people who scanned the QR code can generate the correct code at the right time.",
+    "appsTitle": "Recommended apps",
+    "appsText": "Download one of these free apps on your phone:",
+    "privacyTitle": "Privacy",
+    "privacyText": "No data is sent over the internet. Everything happens in your browser. Once the page is closed, the secret code only exists in your apps."
+  },
+  "toast": {
+    "copied": "Code copied to clipboard",
+    "generated": "Secret code generated successfully",
+    "error": "An error occurred",
+    "minMembers": "Minimum 2 people required"
+  },
+  "footer": {
+    "privacy": "No data transmitted - Everything stays on your device"
+  },
+  "lang": {
+    "select": "Language"
+  }
+}

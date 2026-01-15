@@ -1,0 +1,66 @@
+{
+  "app": {
+    "title": "Code Famille",
+    "subtitle": "Créez un code secret partagé avec vos proches"
+  },
+  "form": {
+    "membersLabel": "Personnes à authentifier",
+    "namePlaceholder": "Nom",
+    "generateBtn": "Générer notre code secret",
+    "regenerateBtn": "Générer un nouveau code",
+    "addMember": "Ajouter une personne",
+    "removeMember": "Retirer"
+  },
+  "result": {
+    "title": "Votre code secret est prêt !",
+    "qrInstructions": "Scannez ce QR code avec votre application d'authentification",
+    "qrFor": "QR Code pour",
+    "manualEntry": "Saisie manuelle",
+    "manualInstructions": "Si vous ne pouvez pas scanner le QR code, entrez ce code manuellement :",
+    "secretLabel": "Code secret",
+    "copyBtn": "Copier",
+    "copied": "Copié !",
+    "issuerLabel": "Émetteur",
+    "accountLabel": "Compte"
+  },
+  "demo": {
+    "title": "Vérification",
+    "description": "Voici le code actuel. Comparez-le avec celui de votre application pour vérifier que tout fonctionne.",
+    "currentCode": "Code actuel",
+    "nextIn": "Prochain code dans",
+    "seconds": "s"
+  },
+  "security": {
+    "title": "Important",
+    "warning1": "Ne faites pas de capture d'écran de cette page",
+    "warning2": "Ne partagez jamais votre code secret par message ou email",
+    "warning3": "Scannez le QR code maintenant, il disparaîtra à la fermeture de la page"
+  },
+  "help": {
+    "title": "Comment ça marche ?",
+    "step1Title": "1. Créez votre code",
+    "step1Text": "Entrez les noms des personnes et cliquez sur \"Générer\". Un code secret unique sera créé.",
+    "step2Title": "2. Scannez le QR code",
+    "step2Text": "Chacun scanne son QR code avec une application comme Google Authenticator, Authy, ou 2FAS.",
+    "step3Title": "3. Utilisez vos codes",
+    "step3Text": "Quand vous avez besoin de vous identifier, comparez vos codes à 6 chiffres. S'ils correspondent, c'est bien vous !",
+    "whyTitle": "Pourquoi c'est sécurisé ?",
+    "whyText": "Le code change toutes les 30 secondes et ne peut pas être deviné. Seules les personnes qui ont scanné le QR code peuvent générer le bon code au bon moment.",
+    "appsTitle": "Applications recommandées",
+    "appsText": "Téléchargez une de ces applications gratuites sur votre téléphone :",
+    "privacyTitle": "Confidentialité",
+    "privacyText": "Aucune donnée n'est envoyée sur internet. Tout se passe dans votre navigateur. Une fois la page fermée, le code secret n'existe plus que dans vos applications."
+  },
+  "toast": {
+    "copied": "Code copié dans le presse-papier",
+    "generated": "Code secret généré avec succès",
+    "error": "Une erreur est survenue",
+    "minMembers": "Minimum 2 personnes requises"
+  },
+  "footer": {
+    "privacy": "Aucune donnée transmise - Tout reste sur votre appareil"
+  },
+  "lang": {
+    "select": "Langue"
+  }
+}
