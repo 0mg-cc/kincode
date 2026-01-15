@@ -47,6 +47,14 @@ python -m http.server 8000 -d public
 npx serve public
 ```
 
+### Tests
+
+```bash
+npm test
+```
+
+Validates TOTP implementation against RFC 6238 test vectors.
+
 ## Security model
 
 - Secret generation: browser `crypto.getRandomValues()` (CSPRNG)
