@@ -1,19 +1,78 @@
-# Message pour le développeur IA
+# authfam
 
-Le but est de proposer une interface intuitive à des utilisateurs non
-techniques, (un grand parent et son petit fils, par exemple) sur la base de
-TOTP/HOTP, pour déterminer un "code" qui leur permettra de s'identifier
-ultérieurement, et de s'assurer que personne n'usurpe une identité
+Shared TOTP-based identity verification for non-technical users.
 
-- l'interface doit être facile d'utilisation, intuitive, permettre aux
-utilisateurs de personaliser les noms/identifiant de leur token (papy,
-stéphane, Bonne Maman...), et expliquer simplement comment l'utiliser pour
-générer les codes et les employer dans une application totp
-- elle doit tourner entierement localement dans le browser des utilisateurs.
-pas de transit de données avec le serveur
-- qrcode en premiere option, mais les données sous-jacentes accessible au
-besoin
-- accent +++ sur l'accessibilité, la facilité d'usage et la pédagogie de
-l'utilisation sécuritaire
-- l'application doit pouvoir être déployée facilement avec docker-compose, et
-exposée publiquement (aucune data, aucun compute sur le serveur)
+Generate a common secret code that family members or trusted groups can use to verify each other's identity using standard authenticator apps.
+
+## Features
+
+- **Fully client-side**: no data sent to server, everything runs in the browser
+- **Zero-knowledge**: server only serves static files, no compute or storage
+- **TOTP standard**: compatible with Google Authenticator, Authy, 2FAS, FreeOTP
+- **Accessible**: WCAG compliant, keyboard navigation, screen reader support
+- **Multilingual**: French, English, Spanish (auto-detected or manual selection)
+- **Privacy-focused**: no tracking, no cookies, no telemetry
+- **Pedagogical**: clear explanations and security warnings for non-technical users
+
+## Use case
+
+Enable low-tech identity verification between trusted individuals (grandparent/grandchild, family members, close friends) without requiring passwords, SMS, or centralized services.
+
+Each person scans their QR code once, then all apps generate identical 6-digit codes every 30 seconds. Matching codes prove identity.
+
+## Deployment
+
+### Docker Compose (recommended)
+
+```bash
+docker compose up -d
+```
+
+Access on `http://localhost` (or configure reverse proxy via `networks.proxy`).
+
+### Development
+
+Serve `public/` with any static file server:
+
+```bash
+python -m http.server 8000 -d public
+# or
+npx serve public
+```
+
+## Architecture
+
+```
+public/
+├── index.html           # main interface
+├── css/style.css        # styling
+├── js/
+│   ├── app.js           # application logic
+│   ├── totp.js          # TOTP implementation
+│   ├── i18n.js          # i18n system
+│   ├── translations/    # language files (fr, en, es)
+│   └── vendor/          # qrcode.js
+└── favicon.svg
+```
+
+**Stack**: vanilla JS (ES6 modules), no build step, no dependencies beyond QRCode.js
+
+**Server**: nginx:alpine, read-only container, no persistent storage
+
+## Security model
+
+- Secret generation: browser `crypto.getRandomValues()` (CSPRNG)
+- TOTP algorithm: RFC 6238 compliant
+- Secrets never leave the device (except via QR code scan)
+- No server-side storage or logging
+- Container runs read-only with `no-new-privileges`
+
+## Internationalization
+
+Language auto-detected from browser (`navigator.language`) or manually selected.
+
+Add languages by creating `/public/js/translations/{lang}.json` and updating `supportedLangs` in `i18n.js`.
+
+## License
+
+See LICENSE file.
