@@ -88,11 +88,11 @@ const TOTP = {
   buildURI({ secret, issuer, account, digits = 6, period = 30, algorithm = 'SHA1' }) {
     const encodedIssuer = encodeURIComponent(issuer);
     const encodedAccount = encodeURIComponent(account);
-    const label = `${encodedIssuer}:${encodedAccount}`;
+    const label = issuer ? `${encodedIssuer}:${encodedAccount}` : encodedAccount;
     
     const params = new URLSearchParams({
       secret,
-      issuer: encodedIssuer,
+      issuer,
       algorithm,
       digits: digits.toString(),
       period: period.toString()

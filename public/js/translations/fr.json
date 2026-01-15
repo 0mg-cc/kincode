@@ -36,6 +36,13 @@
     "warning2": "Ne partagez jamais votre code secret par message ou email",
     "warning3": "Scannez le QR code maintenant, il disparaîtra à la fermeture de la page"
   },
+  "why": {
+    "title": "Pourquoi utiliser Code Famille ?",
+    "riskTitle": "Le risque : l'usurpation d'identité",
+    "riskText": "Aujourd'hui, avec l'intelligence artificielle, il est devenu facile de copier une voix ou un visage. Des escrocs peuvent vous appeler en se faisant passer pour un enfant ou un grand-parent en détresse pour vous demander de l'argent.",
+    "solutionTitle": "La solution : le code secret",
+    "solutionText": "Si vous avez le moindre doute lors d'un appel, demandez : «Quel est le code ?». Seul votre vrai proche, qui a scanné ce QR code, pourra vous donner les 6 chiffres qui s'affichent sur son téléphone."
+  },
   "help": {
     "title": "Comment ça marche ?",
     "step1Title": "1. Créez votre code",

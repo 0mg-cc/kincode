@@ -10,9 +10,26 @@ const I18n = {
   
   async init() {
     const browserLang = navigator.language.slice(0, 2);
-    const savedLang = localStorage.getItem('authfam-lang');
+    const savedLang = this.getStoredLang();
     const lang = savedLang || (this.supportedLangs.includes(browserLang) ? browserLang : 'fr');
     await this.setLang(lang);
+  },
+
+  getStoredLang() {
+    try {
+      return localStorage.getItem('authfam-lang');
+    } catch (e) {
+      console.warn('Language preference unavailable:', e);
+      return null;
+    }
+  },
+
+  setStoredLang(lang) {
+    try {
+      localStorage.setItem('authfam-lang', lang);
+    } catch (e) {
+      console.warn('Failed to persist language preference:', e);
+    }
   },
 
   async loadTranslations(lang) {
@@ -34,7 +51,7 @@ const I18n = {
     if (!this.supportedLangs.includes(lang)) lang = 'fr';
     await this.loadTranslations(lang);
     this.currentLang = lang;
-    localStorage.setItem('authfam-lang', lang);
+    this.setStoredLang(lang);
     document.documentElement.lang = lang;
     this.updateDOM();
   },

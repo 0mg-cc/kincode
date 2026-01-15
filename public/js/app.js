@@ -26,8 +26,9 @@ const App = {
 
   bindEvents() {
     // Language selector
-    document.getElementById('lang-select')?.addEventListener('change', (e) => {
-      I18n.setLang(e.target.value);
+    document.getElementById('lang-select')?.addEventListener('change', async (e) => {
+      await I18n.setLang(e.target.value);
+      this.renderMemberInputs();
       if (this.currentSecret) this.updateResults();
     });
 
@@ -80,11 +81,23 @@ const App = {
     }
   },
 
+  escapeHtml(value) {
+    return String(value).replace(/[&<>"']/g, (char) => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[char]));
+  },
+
   renderMemberInputs() {
     const container = document.getElementById('members-container');
     if (!container) return;
 
-    container.innerHTML = this.members.map((member, index) => `
+    container.innerHTML = this.members.map((member, index) => {
+      const safeName = this.escapeHtml(member.name);
+      return `
       <div class="member-input-row" data-member-id="${member.id}">
         <label for="member-${member.id}" class="sr-only">
           ${I18n.t('form.namePlaceholder')} ${index + 1}
@@ -94,7 +107,7 @@ const App = {
           id="member-${member.id}"
           class="member-name-input"
           data-member-id="${member.id}"
-          value="${member.name}"
+          value="${safeName}"
           placeholder="${I18n.t('form.namePlaceholder')} ${index + 1}"
           autocomplete="off"
           required
@@ -109,7 +122,8 @@ const App = {
           </button>
         ` : ''}
       </div>
-    `).join('');
+    `;
+    }).join('');
 
     // Update add button state
     const addBtn = document.getElementById('add-member');
@@ -170,6 +184,7 @@ const App = {
 
   showResults() {
     const resultsSection = document.getElementById('results');
+    if (!resultsSection) return;
     resultsSection.hidden = false;
     resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
   },
@@ -178,12 +193,16 @@ const App = {
     const issuer = I18n.t('app.title');
     const qrGrid = document.getElementById('qr-grid');
     
-    if (!qrGrid) return;
+    if (!this.currentSecret || !qrGrid) return;
+
+    const safeIssuer = this.escapeHtml(issuer);
 
     // Generate QR cards dynamically
-    qrGrid.innerHTML = this.members.map((member, index) => `
+    qrGrid.innerHTML = this.members.map((member) => {
+      const safeName = this.escapeHtml(member.name);
+      return `
       <article class="qr-card" id="qr-card-${member.id}">
-        <h3 id="qr-label-${member.id}">${I18n.t('result.qrFor')} ${member.name}</h3>
+        <h3 id="qr-label-${member.id}">${I18n.t('result.qrFor')} ${safeName}</h3>
         <div class="qr-container" id="qr-${member.id}" role="img" aria-labelledby="qr-label-${member.id}"></div>
         <button type="button" class="btn btn-secondary btn-small toggle-manual" aria-expanded="false">
           <span data-i18n="result.manualEntry">${I18n.t('result.manualEntry')}</span>
@@ -201,15 +220,16 @@ const App = {
           </div>
           <div class="manual-field">
             <label>${I18n.t('result.issuerLabel')}</label>
-            <div class="value">${issuer}</div>
+            <div class="value">${safeIssuer}</div>
           </div>
           <div class="manual-field">
             <label>${I18n.t('result.accountLabel')}</label>
-            <div class="value">${member.name}</div>
+            <div class="value">${safeName}</div>
           </div>
         </div>
       </article>
-    `).join('');
+    `;
+    }).join('');
 
     // Generate QR codes
     this.members.forEach(member => {

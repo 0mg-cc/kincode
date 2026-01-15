@@ -36,6 +36,13 @@
     "warning2": "Never share your secret code via message or email",
     "warning3": "Scan the QR code now, it will disappear when you close the page"
   },
+  "why": {
+    "title": "Why use Family Code?",
+    "riskTitle": "The risk: Identity theft",
+    "riskText": "Today, with artificial intelligence, it is easy to clone a voice or face. Scammers can call pretending to be a child or grandparent in distress to ask for money.",
+    "solutionTitle": "The solution: The secret code",
+    "solutionText": "If you have any doubt during a call, ask: \"What is the code?\". Only your real relative, who scanned this QR code, can give you the 6 digits displayed on their phone."
+  },
   "help": {
     "title": "How does it work?",
     "step1Title": "1. Create your code",

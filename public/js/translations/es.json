@@ -36,6 +36,13 @@
     "warning2": "Nunca compartas tu código secreto por mensaje o correo electrónico",
     "warning3": "Escanea el código QR ahora, desaparecerá cuando cierres la página"
   },
+  "why": {
+    "title": "¿Por qué usar Código Familiar?",
+    "riskTitle": "El riesgo: Suplantación de identidad",
+    "riskText": "Hoy en día, con la IA, es fácil clonar una voz o un rostro. Los estafadores pueden llamar fingiendo ser un hijo o un abuelo en apuros para pedir dinero.",
+    "solutionTitle": "La solución: El código secreto",
+    "solutionText": "Si tiene alguna duda durante una llamada, pregunte: \"¿Cuál es el código?\". Solo su verdadero familiar podrá darle los 6 dígitos que aparecen en su teléfono."
+  },
   "help": {
     "title": "¿Cómo funciona?",
     "step1Title": "1. Crea tu código",

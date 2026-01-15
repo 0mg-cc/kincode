@@ -16,15 +16,8 @@
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
   <link rel="stylesheet" href="/css/style.css">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   
   <!-- QRCode.js vendored -->
   <script src="/js/vendor/qrcode.min.js"></script>
@@ -36,7 +29,7 @@
     <!-- Language selector -->
     <div class="lang-selector">
       <label for="lang-select" data-i18n="lang.select">Langue</label>
-      <select id="lang-select" aria-label="Sélection de la langue">
+      <select id="lang-select">
         <option value="fr">Français</option>
         <option value="en">English</option>
         <option value="es">Español</option>
@@ -118,6 +111,22 @@
           <li data-i18n="security.warning2">Ne partagez jamais votre code secret par message ou email</li>
           <li data-i18n="security.warning3">Scannez le QR code maintenant, il disparaîtra à la fermeture de la page</li>
         </ul>
+      </section>
+
+      <!-- Why Section -->
+      <section class="help-section help-section--spaced" aria-labelledby="why-heading">
+        <h2 id="why-heading" data-i18n="why.title">Pourquoi utiliser Code Famille ?</h2>
+        
+        <div class="help-grid">
+          <div class="help-item">
+            <h4 data-i18n="why.riskTitle">Le risque : l'usurpation</h4>
+            <p data-i18n="why.riskText">Avec l'IA, il est facile de cloner une voix. Un inconnu peut se faire passer pour un proche en détresse.</p>
+          </div>
+          <div class="help-item">
+            <h4 data-i18n="why.solutionTitle">La solution : le code</h4>
+            <p data-i18n="why.solutionText">En cas de doute, demandez le code. Seul votre vrai proche peut vous donner le bon.</p>
+          </div>
+        </div>
       </section>
 
       <!-- Help Section -->

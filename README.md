@@ -12,6 +12,7 @@ Generate a common secret code that family members or trusted groups can use to v
 - **Accessible**: WCAG compliant, keyboard navigation, screen reader support
 - **Multilingual**: French, English, Spanish (auto-detected or manual selection)
 - **Privacy-focused**: no tracking, no cookies, no telemetry
+- **No third-party requests**: system fonts only, no external CDNs
 - **Pedagogical**: clear explanations and security warnings for non-technical users
 
 ## Use case
@@ -65,6 +66,7 @@ public/
 - TOTP algorithm: RFC 6238 compliant
 - Secrets never leave the device (except via QR code scan)
 - No server-side storage or logging
+- Strict CSP + security headers (scripts restricted to self)
 - Container runs read-only with `no-new-privileges`
 
 ## Internationalization
