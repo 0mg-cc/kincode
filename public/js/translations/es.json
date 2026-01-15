@@ -46,10 +46,12 @@
   },
   "help": {
     "title": "¿Cómo funciona?",
+    "step0Title": "0. Reúnanse",
+    "step0Text": "Deben estar físicamente juntos para este paso. El código secreto no puede transmitirse de forma segura a distancia.",
     "step1Title": "1. Crea tu código",
     "step1Text": "Introduce los nombres de las personas y haz clic en \"Generar\". Se creará un código secreto único.",
     "step2Title": "2. Escanea el código QR",
-    "step2Text": "Cada persona escanea su código QR con una aplicación como Google Authenticator, Authy o 2FAS. Deben estar físicamente juntos en este momento.",
+    "step2Text": "Cada persona escanea su código QR con una aplicación como Google Authenticator, Authy o 2FAS.",
     "step3Title": "3. Usa tus códigos",
     "step3Text": "Cuando necesites verificar tu identidad, compara tus códigos de 6 dígitos. ¡Si coinciden, realmente eres tú!",
     "whyTitle": "¿Por qué es seguro?",

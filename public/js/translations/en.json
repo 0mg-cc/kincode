@@ -46,10 +46,12 @@
   },
   "help": {
     "title": "How does it work?",
+    "step0Title": "0. Meet in person",
+    "step0Text": "You must be physically together for this step. The secret code cannot be securely transmitted remotely.",
     "step1Title": "1. Create your code",
     "step1Text": "Enter the names of the people and click \"Generate\". A unique secret code will be created.",
     "step2Title": "2. Scan the QR code",
-    "step2Text": "Each person scans their QR code with an app like Google Authenticator, Authy, or 2FAS. You must be physically together at this time.",
+    "step2Text": "Each person scans their QR code with an app like Google Authenticator, Authy, or 2FAS.",
     "step3Title": "3. Use your codes",
     "step3Text": "When you need to verify your identity, compare your 6-digit codes. If they match, it's really you!",
     "whyTitle": "Why is it secure?",

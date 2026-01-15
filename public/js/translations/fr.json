@@ -46,10 +46,12 @@
   },
   "help": {
     "title": "Comment ça marche ?",
+    "step0Title": "0. Réunissez-vous",
+    "step0Text": "Vous devez être physiquement ensemble pour cette étape. Le code secret ne peut pas être transmis à distance en toute sécurité.",
     "step1Title": "1. Créez votre code",
     "step1Text": "Entrez les noms des personnes et cliquez sur \"Générer\". Un code secret unique sera créé.",
     "step2Title": "2. Scannez le QR code",
-    "step2Text": "Chacun scanne son QR code avec une application comme Google Authenticator, Authy, ou 2FAS. Vous devez être ensemble physiquement à ce moment.",
+    "step2Text": "Chacun scanne son QR code avec une application comme Google Authenticator, Authy, ou 2FAS.",
     "step3Title": "3. Utilisez vos codes",
     "step3Text": "Quand vous avez besoin de vous identifier, comparez vos codes à 6 chiffres. S'ils correspondent, c'est bien vous !",
     "whyTitle": "Pourquoi c'est sécurisé ?",
