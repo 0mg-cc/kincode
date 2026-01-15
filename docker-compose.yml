@@ -3,8 +3,8 @@ services:
     build: .
     container_name: authfam
     restart: unless-stopped
-    ports:
-      - "8084:80"
+    # ports:
+    #   - "8080:80"
     read_only: true
     tmpfs:
       - /var/cache/nginx
@@ -24,9 +24,9 @@ services:
       interval: 30s
       timeout: 3s
       retries: 3
-#     networks:
-#       proxy:
-#
-# networks:
-#   proxy:
-#     external: true
+    networks:
+      proxy:
+
+networks:
+  proxy:
+    external: true
