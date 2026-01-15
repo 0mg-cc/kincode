@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Créez un code secret partagé avec vos proches pour vous identifier en toute sécurité">
+  <meta name="description"
+    content="Créez un code secret partagé avec vos proches pour vous identifier en toute sécurité">
   <meta name="theme-color" content="#2d5a9e">
-  
+
   <!-- Open Graph -->
   <meta property="og:title" content="KinCode - Authentification partagée">
-  <meta property="og:description" content="Créez un code secret partagé avec vos proches pour vous identifier en toute sécurité">
+  <meta property="og:description"
+    content="Créez un code secret partagé avec vos proches pour vous identifier en toute sécurité">
   <meta property="og:type" content="website">
   <meta property="og:image" content="/favicon.svg">
-  
+
   <title>KinCode - Authentification partagée</title>
-  
+
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  
+
   <link rel="stylesheet" href="/css/style.css">
-  
+
   <!-- QRCode.js vendored -->
   <script src="/js/vendor/qrcode.min.js"></script>
 </head>
+
 <body>
   <a href="#main" class="skip-link">Aller au contenu principal</a>
-  
+
   <div class="container">
     <!-- Language selector -->
     <div class="lang-selector">
@@ -54,8 +58,8 @@
             </div>
             <button type="button" id="add-member" class="btn btn-secondary btn-small">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="8" y1="3" x2="8" y2="13"/>
-                <line x1="3" y1="8" x2="13" y2="8"/>
+                <line x1="8" y1="3" x2="8" y2="13" />
+                <line x1="3" y1="8" x2="13" y2="8" />
               </svg>
               <span data-i18n="form.addMember">Ajouter une personne</span>
             </button>
@@ -69,8 +73,9 @@
       <!-- Results (hidden until generated) -->
       <section id="results" class="results-section" hidden aria-labelledby="results-heading">
         <h2 id="results-heading" data-i18n="result.title">Votre code secret est prêt !</h2>
-        <p class="sr-only" data-i18n="result.qrInstructions">Scannez ce QR code avec votre application d'authentification</p>
-        
+        <p class="sr-only" data-i18n="result.qrInstructions">Scannez ce QR code avec votre application
+          d'authentification</p>
+
         <div id="qr-grid" class="qr-grid">
           <!-- Dynamic QR cards -->
         </div>
@@ -79,7 +84,8 @@
       <!-- Live Demo -->
       <section id="demo-section" class="demo-section" hidden aria-labelledby="demo-heading">
         <h2 id="demo-heading" data-i18n="demo.title">Vérification</h2>
-        <p data-i18n="demo.description">Voici le code actuel. Comparez-le avec celui de votre application pour vérifier que tout fonctionne.</p>
+        <p data-i18n="demo.description">Voici le code actuel. Comparez-le avec celui de votre application pour vérifier
+          que tout fonctionne.</p>
         <div class="demo-display">
           <div class="demo-code-container">
             <span class="demo-label" data-i18n="demo.currentCode">Code actuel</span>
@@ -101,13 +107,14 @@
       <section id="security-warnings" class="security-section" hidden aria-labelledby="security-heading">
         <h2 id="security-heading" class="security-title">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 9v4M12 17h.01"/>
-            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+            <path d="M12 9v4M12 17h.01" />
+            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
           </svg>
           <span data-i18n="security.title">Important</span>
         </h2>
         <ul class="security-list">
-          <li data-i18n="security.warning0">Vous devez être ensemble physiquement pour créer et scanner les QR codes</li>
+          <li data-i18n="security.warning0">Vous devez être ensemble physiquement pour créer et scanner les QR codes
+          </li>
           <li data-i18n="security.warning1">Ne faites pas de capture d'écran de cette page</li>
           <li data-i18n="security.warning2">Ne partagez jamais votre code secret par message ou email</li>
           <li data-i18n="security.warning3">Scannez le QR code maintenant, il disparaîtra à la fermeture de la page</li>
@@ -117,15 +124,17 @@
       <!-- Why Section -->
       <section class="help-section help-section--spaced" aria-labelledby="why-heading">
         <h2 id="why-heading" data-i18n="why.title">Pourquoi utiliser KinCode ?</h2>
-        
+
         <div class="help-grid">
           <div class="help-item">
             <h4 data-i18n="why.riskTitle">Le risque : l'usurpation</h4>
-            <p data-i18n="why.riskText">Avec l'IA, il est facile de cloner une voix. Un inconnu peut se faire passer pour un proche en détresse.</p>
+            <p data-i18n="why.riskText">Avec l'IA, il est facile de cloner une voix. Un inconnu peut se faire passer
+              pour un proche en détresse.</p>
           </div>
           <div class="help-item">
             <h4 data-i18n="why.solutionTitle">La solution : le code</h4>
-            <p data-i18n="why.solutionText">En cas de doute, demandez le code. Seul votre vrai proche peut vous donner le bon.</p>
+            <p data-i18n="why.solutionText">En cas de doute, demandez le code. Seul votre vrai proche peut vous donner
+              le bon.</p>
           </div>
         </div>
       </section>
@@ -133,41 +142,51 @@
       <!-- Help Section -->
       <section class="help-section" aria-labelledby="help-heading">
         <h2 id="help-heading" data-i18n="help.title">Comment ça marche ?</h2>
-        
+
         <div class="help-grid">
           <div class="help-item">
             <h4 data-i18n="help.step0Title">0. Réunissez-vous</h4>
-            <p data-i18n="help.step0Text">Vous devez être physiquement ensemble pour cette étape. Le code secret ne peut pas être transmis à distance en toute sécurité.</p>
+            <p data-i18n="help.step0Text">Vous devez être physiquement ensemble pour utiliser KinCode. Le code secret ne
+              peut pas être transmis à distance en toute sécurité.</p>
           </div>
           <div class="help-item">
             <h4 data-i18n="help.step1Title">1. Créez votre code</h4>
-            <p data-i18n="help.step1Text">Entrez les noms des personnes et cliquez sur "Générer". Un code secret unique sera créé.</p>
+            <p data-i18n="help.step1Text">Entrez les noms des personnes et cliquez sur "Générer". Un code secret unique
+              sera créé.</p>
           </div>
           <div class="help-item">
             <h4 data-i18n="help.step2Title">2. Scannez le QR code</h4>
-            <p data-i18n="help.step2Text">Chacun scanne son QR code avec une application comme Google Authenticator, Authy, ou 2FAS.</p>
+            <p data-i18n="help.step2Text">Chacun scanne son QR code avec une application comme Google Authenticator,
+              Authy, ou 2FAS.</p>
           </div>
           <div class="help-item">
             <h4 data-i18n="help.step3Title">3. Utilisez vos codes</h4>
-            <p data-i18n="help.step3Text">Quand vous avez besoin de vous identifier, comparez vos codes à 6 chiffres. S'ils correspondent, c'est bien vous !</p>
+            <p data-i18n="help.step3Text">Quand vous avez besoin de vous identifier, comparez vos codes à 6 chiffres.
+              S'ils correspondent, c'est bien vous !</p>
           </div>
         </div>
 
         <div class="help-extra">
           <h4 data-i18n="help.whyTitle">Pourquoi c'est sécurisé ?</h4>
-          <p data-i18n="help.whyText">Le code change toutes les 30 secondes et ne peut pas être deviné. Seules les personnes qui ont scanné le QR code peuvent générer le bon code au bon moment.</p>
+          <p data-i18n="help.whyText">Le code change toutes les 30 secondes et ne peut pas être deviné. Seules les
+            personnes qui ont scanné le QR code peuvent générer le bon code au bon moment.</p>
 
           <h4 data-i18n="help.appsTitle">Applications recommandées</h4>
           <p data-i18n="help.appsText">Téléchargez une de ces applications gratuites sur votre téléphone :</p>
           <div class="app-links">
-            <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2" target="_blank" rel="noopener">Google Authenticator</a>
-            <a href="https://play.google.com/store/apps/details?id=com.twofasapp" target="_blank" rel="noopener">2FAS</a>
-            <a href="https://play.google.com/store/apps/details?id=org.fedorahosted.freeotp" target="_blank" rel="noopener">FreeOTP</a>
-            <a href="https://apps.apple.com/app/google-authenticator/id388497605" target="_blank" rel="noopener">iOS: Google Authenticator</a>
+            <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2"
+              target="_blank" rel="noopener">Google Authenticator</a>
+            <a href="https://play.google.com/store/apps/details?id=com.twofasapp" target="_blank"
+              rel="noopener">2FAS</a>
+            <a href="https://play.google.com/store/apps/details?id=org.fedorahosted.freeotp" target="_blank"
+              rel="noopener">FreeOTP</a>
+            <a href="https://apps.apple.com/app/google-authenticator/id388497605" target="_blank" rel="noopener">iOS:
+              Google Authenticator</a>
           </div>
 
           <h4 data-i18n="help.privacyTitle">Confidentialité</h4>
-          <p data-i18n="help.privacyText">Aucune donnée n'est envoyée sur internet. Tout se passe dans votre navigateur. Une fois la page fermée, le code secret n'existe plus que dans vos applications.</p>
+          <p data-i18n="help.privacyText">Aucune donnée n'est envoyée sur internet. Tout se passe dans votre navigateur.
+            Une fois la page fermée, le code secret n'existe plus que dans vos applications.</p>
         </div>
       </section>
     </main>
@@ -179,4 +198,5 @@
 
   <script type="module" src="/js/app.js"></script>
 </body>
+
 </html>

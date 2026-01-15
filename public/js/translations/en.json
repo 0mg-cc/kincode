@@ -47,7 +47,7 @@
   "help": {
     "title": "How does it work?",
     "step0Title": "0. Meet in person",
-    "step0Text": "You must be physically together for this step. The secret code cannot be securely transmitted remotely.",
+    "step0Text": "You must be physically together to use KinCode. The secret code cannot be securely transmitted remotely.",
     "step1Title": "1. Create your code",
     "step1Text": "Enter the names of the people and click \"Generate\". A unique secret code will be created.",
     "step2Title": "2. Scan the QR code",
