@@ -1,0 +1,17 @@
+{
+  "name": "kincode",
+  "version": "1.0.0",
+  "description": "Shared TOTP-based identity verification for non-technical users.",
+  "private": true,
+  "scripts": {
+    "vendor:update": "cp node_modules/qrious/dist/qrious.min.js public/js/vendor/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@git.2027a.net/mathieu/kincode.git"
+  },
+  "license": "AGPL-3.0",
+  "devDependencies": {
+    "qrious": "^4.0.2"
+  }
+}
