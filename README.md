@@ -21,6 +21,8 @@ Generate a common secret code that family members or trusted groups can use to v
 
 Enable low-tech identity verification between trusted individuals (grandparent/grandchild, family members, close friends) without requiring passwords, SMS, or centralized services.
 
+**Important**: All participants must be physically present together when generating and scanning the QR codes. The secret must be established in person to maintain security.
+
 Each person scans their QR code once, then all apps generate identical 6-digit codes every 30 seconds. Matching codes prove identity.
 
 ## Deployment
@@ -67,6 +69,7 @@ public/
 - Secret generation: browser `crypto.getRandomValues()` (CSPRNG)
 - TOTP algorithm: RFC 6238 compliant
 - Secrets never leave the device (except via QR code scan)
+- **Physical presence required**: QR codes must be scanned in person, never shared digitally
 - No server-side storage or logging
 - Strict CSP + security headers (scripts restricted to self)
 - Container runs read-only with `no-new-privileges`

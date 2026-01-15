@@ -32,6 +32,7 @@
   },
   "security": {
     "title": "Important",
+    "warning0": "You must be physically together to create and scan the QR codes",
     "warning1": "Do not take screenshots of this page",
     "warning2": "Never share your secret code via message or email",
     "warning3": "Scan the QR code now, it will disappear when you close the page"
@@ -48,7 +49,7 @@
     "step1Title": "1. Create your code",
     "step1Text": "Enter the names of the people and click \"Generate\". A unique secret code will be created.",
     "step2Title": "2. Scan the QR code",
-    "step2Text": "Each person scans their QR code with an app like Google Authenticator, Authy, or 2FAS.",
+    "step2Text": "Each person scans their QR code with an app like Google Authenticator, Authy, or 2FAS. You must be physically together at this time.",
     "step3Title": "3. Use your codes",
     "step3Text": "When you need to verify your identity, compare your 6-digit codes. If they match, it's really you!",
     "whyTitle": "Why is it secure?",
