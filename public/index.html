@@ -21,6 +21,11 @@
   
   <link rel="stylesheet" href="/css/style.css">
   
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
   <!-- QRCode.js vendored -->
   <script src="/js/vendor/qrcode.min.js"></script>
 </head>
@@ -68,20 +73,14 @@
         </form>
       </section>
 
-      <!-- Security Warnings -->
-      <section id="security-warnings" class="security-section" hidden aria-labelledby="security-heading">
-        <h2 id="security-heading" class="security-title">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 9v4M12 17h.01"/>
-            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
-          </svg>
-          <span data-i18n="security.title">Important</span>
-        </h2>
-        <ul class="security-list">
-          <li data-i18n="security.warning1">Ne faites pas de capture d'écran de cette page</li>
-          <li data-i18n="security.warning2">Ne partagez jamais votre code secret par message ou email</li>
-          <li data-i18n="security.warning3">Scannez le QR code maintenant, il disparaîtra à la fermeture de la page</li>
-        </ul>
+      <!-- Results (hidden until generated) -->
+      <section id="results" class="results-section" hidden aria-labelledby="results-heading">
+        <h2 id="results-heading" data-i18n="result.title">Votre code secret est prêt !</h2>
+        <p class="sr-only" data-i18n="result.qrInstructions">Scannez ce QR code avec votre application d'authentification</p>
+        
+        <div id="qr-grid" class="qr-grid">
+          <!-- Dynamic QR cards -->
+        </div>
       </section>
 
       <!-- Live Demo -->
@@ -105,14 +104,20 @@
         </div>
       </section>
 
-      <!-- Results (hidden until generated) -->
-      <section id="results" class="results-section" hidden aria-labelledby="results-heading">
-        <h2 id="results-heading" data-i18n="result.title">Votre code secret est prêt !</h2>
-        <p class="sr-only" data-i18n="result.qrInstructions">Scannez ce QR code avec votre application d'authentification</p>
-        
-        <div id="qr-grid" class="qr-grid">
-          <!-- Dynamic QR cards -->
-        </div>
+      <!-- Security Warnings -->
+      <section id="security-warnings" class="security-section" hidden aria-labelledby="security-heading">
+        <h2 id="security-heading" class="security-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 9v4M12 17h.01"/>
+            <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+          </svg>
+          <span data-i18n="security.title">Important</span>
+        </h2>
+        <ul class="security-list">
+          <li data-i18n="security.warning1">Ne faites pas de capture d'écran de cette page</li>
+          <li data-i18n="security.warning2">Ne partagez jamais votre code secret par message ou email</li>
+          <li data-i18n="security.warning3">Scannez le QR code maintenant, il disparaîtra à la fermeture de la page</li>
+        </ul>
       </section>
 
       <!-- Help Section -->
