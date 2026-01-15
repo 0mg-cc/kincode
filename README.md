@@ -47,25 +47,6 @@ python -m http.server 8000 -d public
 npx serve public
 ```
 
-## Architecture
-
-```
-public/
-├── index.html           # main interface
-├── css/style.css        # styling
-├── js/
-│   ├── app.js           # application logic
-│   ├── totp.js          # TOTP implementation
-│   ├── i18n.js          # i18n system
-│   ├── translations/    # language files (fr, en, es)
-│   └── vendor/          # qrcode.js
-└── favicon.svg
-```
-
-**Stack**: vanilla JS (ES6 modules), no build step, no dependencies beyond QRCode.js
-
-**Server**: nginx:alpine, read-only container, no persistent storage
-
 ## Security model
 
 - Secret generation: browser `crypto.getRandomValues()` (CSPRNG)
@@ -81,7 +62,3 @@ public/
 Language auto-detected from browser (`navigator.language`) or manually selected.
 
 Add languages by creating `/public/js/translations/{lang}.json` and updating `supportedLangs` in `i18n.js`.
-
-## License
-
-See LICENSE file.
