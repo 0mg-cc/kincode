@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Shared TOTP-based identity verification for non-technical users.",
   "private": true,
+  "type": "module",
   "scripts": {
+    "test": "node test/totp.test.js",
     "vendor:update": "cp node_modules/qrcode-generator/dist/qrcode.js public/js/vendor/qrcode-generator.js"
   },
   "repository": {
