@@ -19,7 +19,7 @@ services:
           "--no-verbose",
           "--tries=1",
           "--spider",
-          "http://kincode/health",
+          "http://kincode:8080/health",
         ]
       interval: 30s
       timeout: 3s
