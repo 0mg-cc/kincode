@@ -9,6 +9,7 @@ services:
     tmpfs:
       - /var/cache/nginx
       - /var/run
+      - /tmp
     security_opt:
       - no-new-privileges:true
     healthcheck:
