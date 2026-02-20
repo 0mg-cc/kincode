@@ -65,7 +65,12 @@
     "copied": "Código copiado al portapapeles",
     "generated": "Código secreto generado correctamente",
     "error": "Ocurrió un error",
-    "minMembers": "Se requieren mínimo 2 personas"
+    "minMembers": "Se requieren mínimo 2 personas",
+    "fixErrors": "Corrige los campos con error"
+  },
+  "validation": {
+    "nameRequired": "Este campo es obligatorio",
+    "duplicateName": "Este nombre ya está en uso"
   },
   "footer": {
     "donate": "Donar"

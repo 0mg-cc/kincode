@@ -65,7 +65,12 @@
     "copied": "Code copié dans le presse-papier",
     "generated": "Code secret généré avec succès",
     "error": "Une erreur est survenue",
-    "minMembers": "Minimum 2 personnes requises"
+    "minMembers": "Minimum 2 personnes requises",
+    "fixErrors": "Corrigez les champs en erreur"
+  },
+  "validation": {
+    "nameRequired": "Ce champ est requis",
+    "duplicateName": "Ce nom est déjà utilisé"
   },
   "footer": {
     "donate": "Faire un don"

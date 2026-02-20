@@ -71,6 +71,7 @@ const App = {
         const id = parseInt(e.target.dataset.memberId);
         const member = this.members.find(m => m.id === id);
         if (member) member.name = e.target.value;
+        this.clearFieldError(id);
       }
     });
   },
@@ -98,29 +99,33 @@ const App = {
     container.innerHTML = this.members.map((member, index) => {
       const safeName = this.escapeHtml(member.name);
       return `
-      <div class="member-input-row" data-member-id="${member.id}">
-        <label for="member-${member.id}" class="sr-only">
-          ${I18n.t('form.namePlaceholder')} ${index + 1}
-        </label>
-        <input 
-          type="text" 
-          id="member-${member.id}"
-          class="member-name-input"
-          data-member-id="${member.id}"
-          value="${safeName}"
-          placeholder="${I18n.t('form.namePlaceholder')} ${index + 1}"
-          autocomplete="off"
-          required
-        >
-        ${this.members.length > this.MIN_MEMBERS ? `
-          <button type="button" class="btn btn-icon remove-member" data-member-id="${member.id}" 
-                  aria-label="${I18n.t('form.removeMember')}" title="${I18n.t('form.removeMember')}">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="5" y1="5" x2="15" y2="15"/>
-              <line x1="15" y1="5" x2="5" y2="15"/>
-            </svg>
-          </button>
-        ` : ''}
+      <div class="member-input-block" data-member-id="${member.id}">
+        <div class="member-input-row">
+          <label for="member-${member.id}" class="sr-only">
+            ${I18n.t('form.namePlaceholder')} ${index + 1}
+          </label>
+          <input
+            type="text"
+            id="member-${member.id}"
+            class="member-name-input"
+            name="member-${member.id}"
+            data-member-id="${member.id}"
+            value="${safeName}"
+            placeholder="${I18n.t('form.namePlaceholder')} ${index + 1}"
+            autocomplete="off"
+            required
+          >
+          ${this.members.length > this.MIN_MEMBERS ? `
+            <button type="button" class="btn btn-icon remove-member" data-member-id="${member.id}" 
+                    aria-label="${I18n.t('form.removeMember')}" title="${I18n.t('form.removeMember')}">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="5" x2="15" y2="15"/>
+                <line x1="15" y1="5" x2="5" y2="15"/>
+              </svg>
+            </button>
+          ` : ''}
+        </div>
+        <p class="field-error" id="member-error-${member.id}" hidden aria-live="polite"></p>
       </div>
     `;
     }).join('');
@@ -147,6 +152,63 @@ const App = {
     this.renderMemberInputs();
   },
 
+  setFieldError(memberId, message) {
+    const input = document.querySelector(`.member-name-input[data-member-id="${memberId}"]`);
+    const error = document.getElementById(`member-error-${memberId}`);
+    if (!input || !error) return;
+
+    error.textContent = message;
+    error.hidden = false;
+    input.setAttribute('aria-invalid', 'true');
+    input.setAttribute('aria-describedby', error.id);
+  },
+
+  clearFieldError(memberId) {
+    const input = document.querySelector(`.member-name-input[data-member-id="${memberId}"]`);
+    const error = document.getElementById(`member-error-${memberId}`);
+    if (!input || !error) return;
+
+    error.textContent = '';
+    error.hidden = true;
+    input.removeAttribute('aria-invalid');
+    input.removeAttribute('aria-describedby');
+  },
+
+  clearValidationErrors() {
+    this.members.forEach(member => this.clearFieldError(member.id));
+  },
+
+  validateMembers() {
+    this.clearValidationErrors();
+
+    let firstInvalidId = null;
+    const namesCount = new Map();
+
+    this.members.forEach(member => {
+      const normalized = member.name.trim().toLowerCase();
+      if (normalized) {
+        namesCount.set(normalized, (namesCount.get(normalized) || 0) + 1);
+      }
+    });
+
+    this.members.forEach(member => {
+      const normalized = member.name.trim().toLowerCase();
+
+      if (!member.name.trim()) {
+        this.setFieldError(member.id, I18n.t('validation.nameRequired'));
+        if (!firstInvalidId) firstInvalidId = member.id;
+        return;
+      }
+
+      if ((namesCount.get(normalized) || 0) > 1) {
+        this.setFieldError(member.id, I18n.t('validation.duplicateName'));
+        if (!firstInvalidId) firstInvalidId = member.id;
+      }
+    });
+
+    return firstInvalidId;
+  },
+
   generate() {
     // Collect names from inputs
     this.members.forEach(member => {
@@ -155,9 +217,11 @@ const App = {
     });
 
     // Validate
-    const emptyMembers = this.members.filter(m => !m.name);
-    if (emptyMembers.length > 0) {
-      this.showToast(I18n.t('toast.error'), 'error');
+    const firstInvalidId = this.validateMembers();
+    if (firstInvalidId) {
+      const input = document.querySelector(`.member-name-input[data-member-id="${firstInvalidId}"]`);
+      input?.focus();
+      this.showToast(I18n.t('toast.fixErrors'), 'error');
       return;
     }
 
