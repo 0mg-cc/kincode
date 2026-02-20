@@ -117,6 +117,11 @@ a:hover {
   text-decoration: underline;
 }
 
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
 /* ============================================
    Layout
    ============================================ */
@@ -191,7 +196,7 @@ footer {
   font-family: inherit;
   cursor: pointer;
   box-shadow: var(--shadow-sm);
-  transition: all 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s, color 0.2s;
 }
 
 .lang-selector select:hover {
@@ -233,11 +238,23 @@ footer {
   margin-bottom: var(--space-md);
 }
 
+.member-input-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
 .member-input-row {
   display: flex;
   gap: var(--space-sm);
   align-items: center;
   animation: slideIn 0.2s ease-out;
+}
+
+.field-error {
+  margin: 0 0 0 0.25rem;
+  font-size: var(--text-sm);
+  color: var(--color-danger);
 }
 
 @keyframes slideIn {
@@ -253,7 +270,7 @@ input[type="text"] {
   font-size: var(--text-base);
   font-family: inherit;
   background: var(--color-bg);
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 input[type="text"]:focus {
@@ -261,6 +278,10 @@ input[type="text"]:focus {
   border-color: var(--color-focus);
   background: var(--color-surface);
   box-shadow: 0 0 0 4px var(--color-primary-light);
+}
+
+input[type="text"][aria-invalid="true"] {
+  border-color: var(--color-danger);
 }
 
 /* Buttons */
@@ -275,7 +296,7 @@ input[type="text"]:focus {
   font-size: var(--text-lg);
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   font-family: inherit;
   line-height: 1;
 }
@@ -440,7 +461,7 @@ input[type="text"]:focus {
 
 .qr-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: var(--space-lg);
 }
 
@@ -596,7 +617,7 @@ input[type="text"]:focus {
   box-shadow: var(--shadow-xl);
   z-index: 1000;
   opacity: 0;
-  transition: all 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  transition: transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -640,6 +661,35 @@ input[type="text"]:focus {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Reduced motion */
+html.reduce-motion {
+  scroll-behavior: auto;
+}
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .qr-card:hover {
+    transform: none;
+  }
 }
 
 /* Print */
