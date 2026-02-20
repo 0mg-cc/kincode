@@ -1,4 +1,12 @@
 {
+  "meta": {
+    "title": "KinCode - Autenticación compartida",
+    "description": "Crea un código secreto compartido con tus seres queridos para verificar la identidad con seguridad",
+    "ogTitle": "KinCode - Autenticación compartida"
+  },
+  "a11y": {
+    "skipToMain": "Saltar al contenido principal"
+  },
   "app": {
     "title": "KinCode",
     "subtitle": "Crea un código secreto compartido con tus seres queridos"
@@ -21,7 +29,8 @@
     "copyBtn": "Copiar",
     "copied": "¡Copiado!",
     "issuerLabel": "Emisor",
-    "accountLabel": "Cuenta"
+    "accountLabel": "Cuenta",
+    "qrAlt": "Código QR para {name}"
   },
   "demo": {
     "title": "Verificación",

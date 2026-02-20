@@ -318,7 +318,7 @@ const App = {
         img.src = qr.createDataURL(4, 0);
         img.width = 200;
         img.height = 200;
-        img.alt = `QR Code for ${member.name}`;
+        img.alt = I18n.t('result.qrAlt').replace('{name}', member.name);
         qrContainer.appendChild(img);
       }
     });
