@@ -59,9 +59,11 @@ const App = {
     document.addEventListener('click', (e) => {
       if (e.target.matches('.toggle-manual') || e.target.closest('.toggle-manual')) {
         const btn = e.target.closest('.toggle-manual');
-        const details = btn.closest('.qr-card').querySelector('.manual-details');
+        const controlsId = btn.getAttribute('aria-controls');
+        const details = controlsId ? document.getElementById(controlsId) : btn.closest('.qr-card')?.querySelector('.manual-details');
+        if (!details) return;
         details.hidden = !details.hidden;
-        btn.setAttribute('aria-expanded', !details.hidden);
+        btn.setAttribute('aria-expanded', String(!details.hidden));
       }
     });
 
@@ -115,7 +117,7 @@ const App = {
         ${this.members.length > this.MIN_MEMBERS ? `
           <button type="button" class="btn btn-icon remove-member" data-member-id="${member.id}" 
                   aria-label="${I18n.t('form.removeMember')}" title="${I18n.t('form.removeMember')}">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
               <line x1="5" y1="5" x2="15" y2="15"/>
               <line x1="15" y1="5" x2="5" y2="15"/>
             </svg>
@@ -186,7 +188,9 @@ const App = {
     const resultsSection = document.getElementById('results');
     if (!resultsSection) return;
     resultsSection.hidden = false;
-    resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const reducedMotion = document.documentElement.classList.contains('reduce-motion') ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    resultsSection.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
   },
 
   updateResults() {
@@ -204,10 +208,10 @@ const App = {
       <article class="qr-card" id="qr-card-${member.id}">
         <h3 id="qr-label-${member.id}">${I18n.t('result.qrFor')} ${safeName}</h3>
         <div class="qr-container" id="qr-${member.id}" role="img" aria-labelledby="qr-label-${member.id}"></div>
-        <button type="button" class="btn btn-secondary btn-small toggle-manual" aria-expanded="false">
+        <button type="button" class="btn btn-secondary btn-small toggle-manual" aria-expanded="false" aria-controls="manual-details-${member.id}">
           <span data-i18n="result.manualEntry">${I18n.t('result.manualEntry')}</span>
         </button>
-        <div class="manual-details" hidden>
+        <div class="manual-details" id="manual-details-${member.id}" hidden>
           <p class="manual-instructions">${I18n.t('result.manualInstructions')}</p>
           <div class="manual-field">
             <label>${I18n.t('result.secretLabel')}</label>
