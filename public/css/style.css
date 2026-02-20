@@ -238,11 +238,23 @@ footer {
   margin-bottom: var(--space-md);
 }
 
+.member-input-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
 .member-input-row {
   display: flex;
   gap: var(--space-sm);
   align-items: center;
   animation: slideIn 0.2s ease-out;
+}
+
+.field-error {
+  margin: 0 0 0 0.25rem;
+  font-size: var(--text-sm);
+  color: var(--color-danger);
 }
 
 @keyframes slideIn {
@@ -266,6 +278,10 @@ input[type="text"]:focus {
   border-color: var(--color-focus);
   background: var(--color-surface);
   box-shadow: 0 0 0 4px var(--color-primary-light);
+}
+
+input[type="text"][aria-invalid="true"] {
+  border-color: var(--color-danger);
 }
 
 /* Buttons */
