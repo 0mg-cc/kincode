@@ -1,6 +1,6 @@
 {
   "name": "kincode",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "description": "Shared TOTP-based identity verification for non-technical users.",
   "private": true,
   "type": "module",
