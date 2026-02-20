@@ -1,4 +1,12 @@
 {
+  "meta": {
+    "title": "KinCode - Shared authentication",
+    "description": "Create a shared secret code with your loved ones to verify identity safely",
+    "ogTitle": "KinCode - Shared authentication"
+  },
+  "a11y": {
+    "skipToMain": "Skip to main content"
+  },
   "app": {
     "title": "KinCode",
     "subtitle": "Create a shared secret code with your loved ones"
@@ -21,7 +29,8 @@
     "copyBtn": "Copy",
     "copied": "Copied!",
     "issuerLabel": "Issuer",
-    "accountLabel": "Account"
+    "accountLabel": "Account",
+    "qrAlt": "QR code for {name}"
   },
   "demo": {
     "title": "Verification",
@@ -65,7 +74,12 @@
     "copied": "Code copied to clipboard",
     "generated": "Secret code generated successfully",
     "error": "An error occurred",
-    "minMembers": "Minimum 2 people required"
+    "minMembers": "Minimum 2 people required",
+    "fixErrors": "Please fix the highlighted fields"
+  },
+  "validation": {
+    "nameRequired": "This field is required",
+    "duplicateName": "This name is already used"
   },
   "footer": {
     "donate": "Donate"
