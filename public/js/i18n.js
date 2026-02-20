@@ -82,6 +82,11 @@ const I18n = {
       el.setAttribute('aria-label', this.t(key));
     });
 
+    document.querySelectorAll('[data-i18n-content]').forEach(el => {
+      const key = el.getAttribute('data-i18n-content');
+      el.setAttribute('content', this.t(key));
+    });
+
     // Update lang selector
     const langSelect = document.getElementById('lang-select');
     if (langSelect) langSelect.value = this.currentLang;
